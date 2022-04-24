@@ -1,0 +1,271 @@
+<html>
+<head>
+<meta charset="utf8">
+<title>讀</title>
+<link rel='stylesheet' href='./bootstrap.css'>
+<script src="./jquery-3.4.1.js"></script>
+<style type="text/css">
+ul{
+    margin-bottom: 0;
+}
+li{
+    width: 50px;
+    border-width:3px;border-style:solid;border-color:black;padding:5px;
+}
+.col-md-4{
+    padding:0;
+    margin-bottom: 10px;
+}
+</style>
+<script type="text/javascript">
+function aaa(){
+    var x=0,y=0,z=0,sudo={
+        0:[],
+        1:[],
+        2:[],
+        3:[],
+        4:[],
+        5:[],
+        6:[],
+        7:[],
+        8:[],
+    };
+    for(n of $('.active')){
+        var val = $(n).html()=="&nbsp;" ? [] : $(n).html();
+
+        sudo[y].push(val);
+
+        if(x==8){
+            x=0;
+            y++;
+        }else{
+            x++;
+        }
+    }
+
+    $.ajax({
+        type: "POST",
+        url: 'Sudoku.php',
+        data:{
+            sudo:JSON.stringify(sudo),
+        },
+        success:function(data) {
+            data = JSON.parse(data);
+            var x=0,y=0;
+            for(n of $('.active')){
+
+                $(n).html(data[y][x]);
+
+                if(x==8){
+                    x=0;
+                    y++;
+                }else{
+                    x++;
+                }
+            }
+
+        },
+        error:function(data){
+            alert("Fail");
+        }
+    });
+}
+    
+</script>
+</head>
+<body>
+<div style="width: 450px;margin: auto;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">1</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">7</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">4</li>
+                        <li class="active page-item">3</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">2</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">5</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">9</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">6</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">4</li>
+                        <li class="active page-item">1</li>
+                        <li class="active page-item">8</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">2</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">4</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">8</li>
+                        <li class="active page-item">1</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mx-auto">
+                <div class="text-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">5</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                    <ul class="pagination" id="pagination">
+                        <li class="active page-item">3</li>
+                        <li class="active page-item">&nbsp</li>
+                        <li class="active page-item">&nbsp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
